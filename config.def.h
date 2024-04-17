@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "NotoMono Nerd Font:size=12";
+static char *font = "Fantasque Sans Mono:size=16";
 static int borderpx = 2;
 
 /*
@@ -96,53 +96,46 @@ unsigned int tabspaces = 2;
 /* bg opacity */
 float alpha = 0.8;
 
-/*
- *
- * Name : Catppuccin
- * author : tsjazil (https://github.com/tsjazil)
- * 
- * Soothing pastel theme for the high-spirited!
- *
- */
-
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
-	"#6E6C7E",
-	"#F28FAD",
-	"#ABE9B3",
-	"#FAE3B0",
-	"#96CDFB",
-	"#F5C2E7",
-	"#89DCEB",
-	"#D9E0EE",
+	"#475258",
+	"#e67e80",
+	"#a7c080",
+	"#dbbc7f",
+	"#7fbbb3",
+	"#d699b6",
+	"#83c092",
+	"#d3c6aa",
 
 	/* 8 bright colors */
-	"#988BA2",
-	"#F28FAD",
-	"#ABE9B3",
-	"#FAE3B0",
-	"#96CDFB",
-	"#F5C2E7",
-	"#89DCEB",
-	"#D9E0EE",
+	"#475258",
+	"#e67e80",
+	"#a7c080",
+	"#dbbc7f",
+	"#7fbbb3",
+	"#d699b6",
+	"#83c092",
+	"#d3c6aa",
 
+	[255] = 0,
 
-
-[256] = "#D9E0EE", /* default foreground colour */
-[257] = "#1E1E2E", /* default background colour */
-[258] = "#C3BAC6", /*575268*/
-
+	/* more colors can be added after 255 to use with DefaultXX */
+	"#cccccc",
+	"#555555",
+	"#D3C6AA", /* default foreground colour */
+	"#2D353B", /* default background colour */
 };
 
 
 /*
+ * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 256;
-unsigned int defaultbg = 257;
-unsigned int defaultcs = 258;
-static unsigned int defaultrcs = 258;
+unsigned int defaultfg = 258;
+unsigned int defaultbg = 259;
+unsigned int defaultcs = 256;
+static unsigned int defaultrcs = 257;
 
 /*
  * Default shape of cursor
@@ -203,9 +196,9 @@ static Shortcut shortcuts[] = {
 	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
 	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
 	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
-	{ TERMMOD,              XK_I,       	zoom,           {.f = +1} },
-	{ TERMMOD,              XK_O,        	zoom,           {.f = -1} },
-	{ TERMMOD,              XK_P,       	zoomreset,      {.f =  0} },
+	{ ControlMask,          XK_equal,       zoom,           {.f = +1} },
+	{ ControlMask,          XK_minus,       zoom,           {.f = -1} },
+	{ ControlMask,          XK_0,           zoomreset,      {.f =  0} },
 	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
 	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
